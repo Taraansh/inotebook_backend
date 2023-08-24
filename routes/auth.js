@@ -33,7 +33,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ error: "User already exists with this email" });
+          .json({ message: "User already exists with this email" });
       }
       const salt = await bcrypt.genSalt(10);
       const secPass = await bcrypt.hash(req.body.password, salt);
